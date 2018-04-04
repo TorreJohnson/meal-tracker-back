@@ -1,6 +1,6 @@
 class Api::V1::UsersController < ApplicationController
   def create
-    @user = User.new()
+    @user = User.new(user_params)
     if @user.save
       render json: @user
     else
@@ -14,13 +14,13 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
-    @user = User.findBy(id: params[:id])
+    @user = User.find_by(id: params[:id])
     render json: @user
   end
 
   def update
-    @user = User.findBy(id: params[:id])
-    @user.update()
+    @user = User.find_by(id: params[:id])
+    @user.update(user_params)
     if @user.save
       render json: @user
     else
@@ -29,9 +29,10 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.findBy(id: params[:id])
-    User.destroy(@user.id)
-    # render json: {@user.id: "destroyed"}
+    @user = User.find_by(id: params[:id])
+    if @user.destroy
+      render "User has been destroyed"
+    end
   end
 
   private

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180404191113) do
+ActiveRecord::Schema.define(version: 20180404202717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20180404191113) do
   create_table "nutritionists", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "password_hash"
+    t.string "password_digest"
     t.string "office_address"
     t.float "office_latitude"
     t.float "office_longitude"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20180404191113) do
     t.string "name"
     t.string "username"
     t.string "email"
-    t.string "password_hash"
+    t.string "password_digest"
     t.integer "age"
     t.integer "weight"
     t.float "bmi"
