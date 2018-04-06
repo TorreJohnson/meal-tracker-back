@@ -1,5 +1,7 @@
 ActiveModelSerializers.config.adapter = :json_api
 
+ActiveModel::Serializer.config.key_transform = :unaltered
+
 api_mime_types = %W(
   application/vnd.api+json
   text/x-json
