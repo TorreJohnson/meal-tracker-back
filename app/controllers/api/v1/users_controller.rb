@@ -1,8 +1,9 @@
 class Api::V1::UsersController < ApplicationController
   def create
-    @user = User.new(user_params)
+    @user = User.new(name: params[:name], username: params[:username], password: params[:password])
     if @user.save
-      render json: @user
+      jwt = issue_token({user_id: @user.id})
+      render json: {"user": @user, "jwt": jwt}
     else
       render json: {"Uh": "oh"}
     end

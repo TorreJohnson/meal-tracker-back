@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :users, except: [:new, :edit]
+      post "/signup", to: "users#create"
+      post "/login", to: "auth#create"
+      get "/get_user", to: "auth#show"
+      resources :users, except: [:new, :edit, :create]
       resources :messages, except: [:new, :edit]
       resources :food_items, except: [:new, :edit]
       resources :nutritionists, except: [:new, :edit]
