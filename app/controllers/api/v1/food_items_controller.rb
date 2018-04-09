@@ -1,7 +1,6 @@
 class Api::V1::FoodItemsController < ApplicationController
 
   def create
-    byebug
     @food_item = FoodItem.new(food_item_params)
     if @food_item.save
       render json: @food_item
