@@ -27,7 +27,7 @@ class Api::V1::NutritionistsController < ApplicationController
   def destroy
     @nutritionist = Nutritionist.find_by(id: params[:id])
     if @nutritionist.destroy
-      render "User has been destroyed"
+      render json: {alert: "User has been destroyed"}
     end
   end
 

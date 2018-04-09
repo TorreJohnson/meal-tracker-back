@@ -4,7 +4,6 @@ class Api::V1::AuthController < ApplicationController
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
       jwt = issue_token({user_id: @user.id})
-      byebug
       render json: {user: @user, jwt: jwt}
     else
       render json: {error: "Invalid Username and/or Password"}
@@ -12,8 +11,8 @@ class Api::V1::AuthController < ApplicationController
   end
 
   def show
-    if current_user
-      render json: current_user
+    if current_use
+      render json: current_use
     else
       render json: {error: "Invalid User"}
     end

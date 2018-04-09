@@ -8,7 +8,7 @@ class ApplicationController < ActionController::API
     JWT.decode(get_token, "xxxx")[0]
   end
 
-  def current_user
+  def current_use
     decoded_hash = decode_token
     User.find(decoded_hash["user_id"])
   end
