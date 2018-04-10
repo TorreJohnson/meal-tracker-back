@@ -5,8 +5,8 @@ Rails.application.routes.draw do
       post "/login", to: "auth#create"
       get "/get_user", to: "auth#show"
       resources :users, except: [:new, :edit, :create]
-      resources :messages, except: [:new, :edit]
-      resources :food_items, except: [:new, :edit, :index]
+      resources :messages, only: [:create, :update, :destroy]
+      resources :food_items, only: [:create, :update, :destroy]
       resources :nutritionists, except: [:new, :edit]
     end
   end

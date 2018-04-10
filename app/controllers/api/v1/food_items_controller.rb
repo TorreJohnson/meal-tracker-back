@@ -5,11 +5,8 @@ class Api::V1::FoodItemsController < ApplicationController
     if @food_item.save
       render json: @food_item
     else
-      render json: {error: "error"}
+      render json: {errors: @food_item.errors.full_messages}
     end
-  end
-
-  def show
   end
 
   def update
@@ -23,4 +20,5 @@ class Api::V1::FoodItemsController < ApplicationController
   def food_item_params
     params.require(:food_item).permit(:user_id, :meal_type, :date, :name, :upc, :measurement, :quantity, :beta_carotene, :caffeine, :calcium, :carbohydrate, :cholesterol, :calories, :fat, :fiber, :folic_acid, :iron, :niacin, :potassium, :protein, :riboflavin, :sodium, :sugars, :thiamin, :vitamin_a, :vitamin_b12, :vitamin_c, :vitamin_d, :vitamin_e, :vitamin_k, :zinc)
   end
+  
 end

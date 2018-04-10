@@ -1,4 +1,4 @@
 class Message < ApplicationRecord
-  belongs_to :users
-  belongs_to :nutritionists
+  belongs_to :user
+  belongs_to :nutritionist
 end

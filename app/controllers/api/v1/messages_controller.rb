@@ -1,8 +1,12 @@
 class Api::V1::MessagesController < ApplicationController
+
   def create
     @message = Message.new(message_params)
+    byebug
     if @message.save
       render json: @message
+    else
+      render json: {errors: @message.errors.full_messages}
     end
   end
 
@@ -30,5 +34,9 @@ class Api::V1::MessagesController < ApplicationController
   end
 
   private
+
+  def message_params
+    params.require(:message).permit(:user_id, :nutritionist_id, :parent_message, :subject, :body, :sender_type, :sender_id)
+  end
 
 end
