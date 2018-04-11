@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       post "/signup", to: "users#create"
       post "/login", to: "auth#create"
       get "/get_user", to: "auth#show"
+      get "/get_users/:id", to: "nutritionists#users"
       resources :users, except: [:new, :edit, :create]
       resources :messages, only: [:create, :update, :destroy]
       resources :food_items, only: [:create, :update, :destroy]

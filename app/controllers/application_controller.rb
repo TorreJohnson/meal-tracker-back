@@ -10,7 +10,11 @@ class ApplicationController < ActionController::API
 
   def current_use
     decoded_hash = decode_token
-    User.find(decoded_hash["user_id"])
+    if(decoded_hash.has_key?("user_id"))
+      User.find(decoded_hash["user_id"])
+    elsif(decoded_hash.has_key?("nutritionist_id"))
+      Nutritionist.find(decoded_hash["nutritionist_id"])
+    end
   end
 
   def get_token

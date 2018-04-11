@@ -7,6 +7,15 @@ class Api::V1::NutritionistsController < ApplicationController
     end
   end
 
+  def users
+    @nutritionist = Nutritionist.find_by(id: params[:id])
+    if @nutritionist
+      render json: @nutritionist.users
+    else
+      render json: {errors: @nutritionist.users.errors.full_messages}
+    end
+  end
+
   def index
     @nutritionists = Nutritionist.all
     render json: @nutritionists
