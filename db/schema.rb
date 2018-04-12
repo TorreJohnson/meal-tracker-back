@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180410180514) do
+ActiveRecord::Schema.define(version: 20180412201814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,13 @@ ActiveRecord::Schema.define(version: 20180410180514) do
     t.integer "zinc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
+    t.string "high_res"
+    t.integer "serving"
+    t.string "serving_unit"
+    t.integer "serving_in_grams"
+    t.string "brand"
+    t.integer "ndb_no"
   end
 
   create_table "messages", force: :cascade do |t|
