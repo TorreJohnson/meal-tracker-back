@@ -1,4 +1,5 @@
 class Api::V1::MessagesController < ApplicationController
+  before_action :current_use
 
   def create
     @message = Message.new(message_params)
@@ -23,6 +24,8 @@ class Api::V1::MessagesController < ApplicationController
     @message = Message.find_by(id: params[:id])
     if @message.update(message_params)
       render json: @message
+    else
+      render json: {errors: @message.errors.full_messages}
     end
   end
 
@@ -35,7 +38,7 @@ class Api::V1::MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:user_id, :nutritionist_id, :parent_message, :subject, :body, :sender_type, :sender_id)
+    params.require(:message).permit(:id, :user_id, :nutritionist_id, :parent_message, :subject, :body, :sender_type, :sender_id, :read)
   end
 
 end

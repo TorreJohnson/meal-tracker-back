@@ -5,7 +5,7 @@ class Api::V1::UsersController < ApplicationController
       jwt = issue_token({user_id: @user.id})
       render json: {"user": @user, "jwt": jwt}
     else
-      render json: {"Uh": "oh"}
+      render json: {errors: @user.errors.full_messages}
     end
   end
 
@@ -25,7 +25,7 @@ class Api::V1::UsersController < ApplicationController
     if @user.save
       render json: @user
     else
-      render json: {"Uh": "oh"}
+      render json: {errors: @user.errors.full_messages}
     end
   end
 
