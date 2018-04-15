@@ -1,8 +1,8 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :current_use
 
   def create
     @user = User.new(user_params)
+    @user.password = params[:password]
     if @user.save
       jwt = issue_token({user_id: @user.id})
       render json: {user: @user, jwt: jwt}
@@ -33,7 +33,7 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :username, :email, :password, :age, :weight, :bmi, :address, :latitude, :longitude, :goal, :nutritionist_id)
+    params.require(:user).permit(:name, :username, :email, :password, :age, :weight, :bmi, :address, :latitude, :longitude, :goal, :nutritionist_id, :profile_photo, :height, :birthday)
   end
 
 end

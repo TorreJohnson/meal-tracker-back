@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resources :users, only: [:create, :show, :update, :destroy]
       resources :messages, only: [:create, :update]
       resources :food_items, only: [:create]
-      resources :nutritionists, only: [:create, :show, :update, :destroy]
+      resources :nutritionists, only: [:create, :show, :index, :update, :destroy]
     end
   end
 end

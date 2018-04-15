@@ -2,9 +2,12 @@ class Api::V1::NutritionistsController < ApplicationController
 
   def create
     @nutritionist = Nutritionist.new(nutritionist_params)
+    @nutritionist.password = params[:password]
     if @nutritionist.save
       jwt = issue_token({nutritionist_id: @nutritionist.id})
       render json: {user: @nutritionist, jwt: jwt}
+    else
+      render json: {errors: @nutritionist.errors.full_messages}
     end
   end
 
@@ -20,6 +23,11 @@ class Api::V1::NutritionistsController < ApplicationController
     if current_use
       render json: current_use
     end
+  end
+
+  def index
+    @nutritionists = Nutritionist.all
+    render json: @nutritionists
   end
 
   def update
