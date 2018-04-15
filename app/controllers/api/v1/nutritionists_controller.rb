@@ -45,6 +45,6 @@ class Api::V1::NutritionistsController < ApplicationController
   private
 
   def nutritionist_params
-    params.require(:nutritionist).permit(:name, :email, :password, :office_address, :office_latitude, :office_longitude, :accepts_new_patients, :biography)
+    params.require(:nutritionist).permit(:name, :email, :password, :company_name, :office_address, :office_latitude, :office_longitude, :accepts_new_patients, :biography, :profile_photo)
   end
 end
