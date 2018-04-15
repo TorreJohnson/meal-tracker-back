@@ -9,12 +9,6 @@ class Api::V1::FoodItemsController < ApplicationController
     end
   end
 
-  def update
-  end
-
-  def destroy
-  end
-
   private
 
   def food_item_params

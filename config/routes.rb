@@ -5,10 +5,10 @@ Rails.application.routes.draw do
       post "/login", to: "auth#create"
       get "/get_user", to: "auth#show"
       get "/get_users/:id", to: "nutritionists#users"
-      resources :users, except: [:new, :edit, :create]
-      resources :messages, only: [:create, :update, :destroy]
-      resources :food_items, only: [:create, :update, :destroy]
-      resources :nutritionists, except: [:new, :edit]
+      resources :users, only: [:create, :show, :update, :destroy]
+      resources :messages, only: [:create, :update]
+      resources :food_items, only: [:create]
+      resources :nutritionists, only: [:create, :show, :update, :destroy]
     end
   end
 end
