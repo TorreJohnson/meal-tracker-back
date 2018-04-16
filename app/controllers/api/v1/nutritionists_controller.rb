@@ -20,8 +20,11 @@ class Api::V1::NutritionistsController < ApplicationController
   end
 
   def show
-    if current_use
-      render json: current_use
+    @nutritionist = Nutritionist.find_by(id: params[:id])
+    if @nutritionist
+      render json: @nutritionist
+    else
+      render json: {errors: @nutritionist.errors.full_messages}
     end
   end
 
