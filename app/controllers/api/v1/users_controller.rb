@@ -16,11 +16,12 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def update
-    current_use.update(user_params)
-    if current_use.save
-      render json: current_use
+    @user = User.find_by(id: params[:id])
+    @user.update(user_params)
+    if @user.save
+      render json: @user
     else
-      render json: {errors: current_use.errors.full_messages}
+      render json: {errors: @user.errors.full_messages}
     end
   end
 
@@ -33,7 +34,7 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :username, :email, :password, :age, :weight, :bmi, :address, :latitude, :longitude, :goal, :nutritionist_id, :profile_photo, :height, :birthday)
+    params.require(:user).permit(:name, :username, :email, :password, :age, :weight, :bmi, :address, :latitude, :longitude, :goal, :nutritionist_id, :profile_photo, :height, :birthday, :rec_beta_carotene, :rec_caffeine, :rec_calcium, :rec_carbohydrate, :rec_cholesterol, :rec_calories, :rec_fat, :rec_fiber, :rec_folic_acid, :rec_iron, :rec_niacin, :rec_potassium, :rec_protein, :rec_riboflavin, :rec_sodium, :rec_sugars, :rec_thiamin, :rec_vitamin_a, :rec_vitamin_b12, :rec_vitamin_c, :rec_vitamin_d, :rec_vitamin_e, :rec_vitamin_k, :rec_zinc)
   end
 
 end
