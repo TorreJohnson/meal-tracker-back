@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180415181057) do
+ActiveRecord::Schema.define(version: 20180416134244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,6 +104,30 @@ ActiveRecord::Schema.define(version: 20180415181057) do
     t.string "profile_photo"
     t.integer "height"
     t.date "birthday"
+    t.integer "rec_beta_carotene"
+    t.integer "rec_caffeine"
+    t.integer "rec_calcium"
+    t.integer "rec_carbohydrate"
+    t.integer "rec_cholesterol"
+    t.integer "rec_calories"
+    t.integer "rec_fat"
+    t.integer "rec_fiber"
+    t.integer "rec_folic_acid"
+    t.integer "rec_iron"
+    t.integer "rec_niacin"
+    t.integer "rec_potassium"
+    t.integer "rec_protein"
+    t.integer "rec_riboflavin"
+    t.integer "rec_sodium"
+    t.integer "rec_sugars"
+    t.integer "rec_thiamin"
+    t.integer "rec_vitamin_a"
+    t.integer "rec_vitamin_b12"
+    t.integer "rec_vitamin_c"
+    t.integer "rec_vitamin_d"
+    t.integer "rec_vitamin_e"
+    t.integer "rec_vitamin_k"
+    t.integer "rec_zinc"
   end
 
 end
