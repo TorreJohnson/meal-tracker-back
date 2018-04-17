@@ -12,7 +12,7 @@ class Api::V1::FoodItemsController < ApplicationController
   private
 
   def food_item_params
-    params.require(:food_item).permit(:user_id, :meal_type, :date, :name, :upc, :measurement, :quantity, :beta_carotene, :caffeine, :calcium, :carbohydrate, :cholesterol, :calories, :fat, :fiber, :folic_acid, :iron, :niacin, :potassium, :protein, :riboflavin, :sodium, :sugars, :thiamin, :vitamin_a, :vitamin_b12, :vitamin_c, :vitamin_d, :vitamin_e, :vitamin_k, :zinc, :image, :high_res, :serving, :serving_unit, :serving_in_grams, :brand, :ndb_no)
+    params.require(:food_item).permit(:user_id, :meal_type, :date, :name, :upc, :measurement, :quantity, :beta_carotene, :caffeine, :calcium, :carbohydrate, :cholesterol, :calories, :fat, :fiber, :folic_acid, :iron, :niacin, :potassium, :protein, :riboflavin, :sodium, :sugars, :thiamin, :vitamin_a, :vitamin_b12, :vitamin_c, :vitamin_d, :vitamin_e, :vitamin_k, :zinc, :image, :high_res, :serving, :serving_unit, :serving_in_grams, :brand, :ndb_no, :ingredients)
   end
 
 end
