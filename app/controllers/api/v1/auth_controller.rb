@@ -13,6 +13,7 @@ class Api::V1::AuthController < ApplicationController
       render json: {error: "Invalid Username and/or Password"}
     end
   end
+  
 
   def show
     if current_use
