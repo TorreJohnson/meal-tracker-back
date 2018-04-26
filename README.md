@@ -23,6 +23,10 @@ Additionally, you can sign up as a nutritionist and set nutritional goals for yo
 * CSS
 * HTML
 
+**The front end code can be found at:**
+
+https://github.com/TorreJohnson/meal-tracker-front
+
 **The back end was built with:**
 
 Ruby on Rails
