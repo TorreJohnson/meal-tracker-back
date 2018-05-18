@@ -7,9 +7,9 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins '*'
+    origins 'localhost:3000', 'meal-tracker-front.herokuapp.com'
 
-    resource '*',
+    resource '/api/v1/*',
       headers: :any,
       methods: [:get, :post, :put, :patch, :delete, :options, :head]
   end
